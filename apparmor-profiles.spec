@@ -1,6 +1,7 @@
 %define		_ver 2.0
 %define		_svnrel 6376
 Summary:	AppArmor profiles
+Summary(pl):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	%{_ver}.%{_svnrel}
 Release:	0.1
@@ -14,8 +15,8 @@ Obsoletes:	subdomain-profiles
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define extras_dir %{_sysconfdir}/apparmor/profiles/extras
-%define profiles_dir %{_sysconfdir}/apparmor.d
+%define		extras_dir	%{_sysconfdir}/apparmor/profiles/extras
+%define		profiles_dir	%{_sysconfdir}/apparmor.d
 
 %description
 Base AppArmor profiles (aka security policy). AppArmor is a file
@@ -24,14 +25,22 @@ resources allowed by the systems administrator and can constrain the
 scope of potential security vulnerabilities. This package is part of a
 suite of tools that used to be named SubDomain.
 
+%description -l pl
+Podstawowe profile AppArmor (zwane tak¿e polityk± bezpieczeñstwa).
+AppArmor to mechanizm obowi±zkowej kontroli dostêpu do plików.
+AppArmor ogranicza procesy do zasobów udostêpnionych przez
+administratora systemu i mo¿e ograniczaæ zakres potencjalnych luk w
+bezpieczeñstwie. Ten pakiet jest czê¶ci± zestawu narzêdzi zwanych
+SubDomain.
+
 %prep
 %setup -q -n %{name}-%{_ver}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
-	DESTDIR=${RPM_BUILD_ROOT} \
-	EXTRASDIR=${RPM_BUILD_ROOT}/%{extras_dir}
+	DESTDIR=$RPM_BUILD_ROOT \
+	EXTRASDIR=$RPM_BUILD_ROOT%{extras_dir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
