@@ -4,7 +4,7 @@ Summary:	AppArmor profiles
 Summary(pl):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	%{_ver}.%{_svnrel}
-Release:	0.1
+Release:	0.2
 Group:		Base
 Source0:	http://forgeftp.novell.com/apparmor/Development%20-%20September%20snapshot/%{name}-%{_ver}-%{_svnrel}.tar.gz
 # Source0-md5:	7a4501c2bb71fbdf1445e17ca4c58cb5
@@ -34,6 +34,30 @@ administratora systemu i mo¿e ograniczaæ zakres potencjalnych luk w
 bezpieczeñstwie. Ten pakiet jest czê¶ci± zestawu narzêdzi zwanych
 SubDomain.
 
+%package abstractions
+Summary:	Abstraction AppArmor files
+Summary(pl):	Pliki abstrakcji dla AppArmor
+Group:		Base
+Requires:	%{name} = %{version}-%{release}
+
+%description abstractions
+Abstraction AppArmor files.
+
+%description abstractions -l pl
+Pliki abstrakcji dla AppArmor.
+
+%package examples
+Summary:	Example AppArmor profiles
+Summary(pl):	Przyk³adowe profile AppArmor
+Group:		Base
+Requires:	%{name}-abstractions = %{version}-%{release}
+
+%description examples
+Example AppArmor profiles.
+
+%description examples -l pl
+Przyk³adowe profile AppArmor.
+
 %prep
 %setup -q -n %{name}-%{_ver}
 
@@ -56,5 +80,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/apparmor.d/abstractions
 %dir %{_sysconfdir}/apparmor.d/program-chunks
 %dir %{_sysconfdir}/apparmor.d/tunables
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/*
+
+%files abstractions
+%defattr(644,root,root,755)
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/*
+
+%files examples
+%defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/*.*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/*/*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/program-chunks/*
