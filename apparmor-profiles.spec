@@ -4,7 +4,7 @@ Summary:	AppArmor profiles
 Summary(pl):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	%{_ver}.%{_svnrel}
-Release:	0.2
+Release:	0.3
 Group:		Base
 Source0:	http://forgeftp.novell.com/apparmor/Development%20-%20September%20snapshot/%{name}-%{_ver}-%{_svnrel}.tar.gz
 # Source0-md5:	7a4501c2bb71fbdf1445e17ca4c58cb5
@@ -74,8 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/apparmor
 %dir %{_sysconfdir}/apparmor/profiles
-%dir %{extras_dir}
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/*
 %dir %{_sysconfdir}/apparmor.d
 %dir %{_sysconfdir}/apparmor.d/abstractions
 %dir %{_sysconfdir}/apparmor.d/program-chunks
@@ -88,5 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files examples
 %defattr(644,root,root,755)
+%dir %{extras_dir}
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/*.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/program-chunks/*
