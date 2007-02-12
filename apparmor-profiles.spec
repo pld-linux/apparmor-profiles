@@ -1,7 +1,7 @@
 %define		_ver 2.0
 %define		_svnrel 119
 Summary:	AppArmor profiles
-Summary(pl.UTF-8):   Profile AppArmor
+Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	%{_ver}.%{_svnrel}
 Release:	0.3
@@ -36,7 +36,7 @@ SubDomain.
 
 %package abstractions
 Summary:	Abstraction AppArmor files
-Summary(pl.UTF-8):   Pliki abstrakcji dla AppArmor
+Summary(pl.UTF-8):	Pliki abstrakcji dla AppArmor
 Group:		Base
 Requires:	%{name} = %{version}-%{release}
 
@@ -48,7 +48,7 @@ Pliki abstrakcji dla AppArmor.
 
 %package examples
 Summary:	Example AppArmor profiles
-Summary(pl.UTF-8):   Przykładowe profile AppArmor
+Summary(pl.UTF-8):	Przykładowe profile AppArmor
 Group:		Base
 Requires:	%{name}-abstractions = %{version}-%{release}
 
