@@ -1,7 +1,7 @@
 %define		_ver 2.0
 %define		_svnrel 119
 Summary:	AppArmor profiles
-Summary(pl):	Profile AppArmor
+Summary(pl.UTF-8):   Profile AppArmor
 Name:		apparmor-profiles
 Version:	%{_ver}.%{_svnrel}
 Release:	0.3
@@ -26,37 +26,37 @@ resources allowed by the systems administrator and can constrain the
 scope of potential security vulnerabilities. This package is part of a
 suite of tools that used to be named SubDomain.
 
-%description -l pl
-Podstawowe profile AppArmor (zwane tak¿e polityk± bezpieczeñstwa).
-AppArmor to mechanizm obowi±zkowej kontroli dostêpu do plików.
-AppArmor ogranicza procesy do zasobów udostêpnionych przez
-administratora systemu i mo¿e ograniczaæ zakres potencjalnych luk w
-bezpieczeñstwie. Ten pakiet jest czê¶ci± zestawu narzêdzi zwanych
+%description -l pl.UTF-8
+Podstawowe profile AppArmor (zwane takÅ¼e politykÄ… bezpieczeÅ„stwa).
+AppArmor to mechanizm obowiÄ…zkowej kontroli dostÄ™pu do plikÃ³w.
+AppArmor ogranicza procesy do zasobÃ³w udostÄ™pnionych przez
+administratora systemu i moÅ¼e ograniczaÄ‡ zakres potencjalnych luk w
+bezpieczeÅ„stwie. Ten pakiet jest czÄ™Å›ciÄ… zestawu narzÄ™dzi zwanych
 SubDomain.
 
 %package abstractions
 Summary:	Abstraction AppArmor files
-Summary(pl):	Pliki abstrakcji dla AppArmor
+Summary(pl.UTF-8):   Pliki abstrakcji dla AppArmor
 Group:		Base
 Requires:	%{name} = %{version}-%{release}
 
 %description abstractions
 Abstraction AppArmor files.
 
-%description abstractions -l pl
+%description abstractions -l pl.UTF-8
 Pliki abstrakcji dla AppArmor.
 
 %package examples
 Summary:	Example AppArmor profiles
-Summary(pl):	Przyk³adowe profile AppArmor
+Summary(pl.UTF-8):   PrzykÅ‚adowe profile AppArmor
 Group:		Base
 Requires:	%{name}-abstractions = %{version}-%{release}
 
 %description examples
 Example AppArmor profiles.
 
-%description examples -l pl
-Przyk³adowe profile AppArmor.
+%description examples -l pl.UTF-8
+PrzykÅ‚adowe profile AppArmor.
 
 %prep
 %setup -q -n %{name}-%{_ver}
