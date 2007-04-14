@@ -1,13 +1,14 @@
-%define		_ver 2.0
-%define		_svnrel 119
+%define		_ver 2.0.2
+%define		_svnrel 563
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	%{_ver}.%{_svnrel}
 Release:	0.3
+Epoch:		1
 Group:		Base
-Source0:	http://forgeftp.novell.com/apparmor/Development%20-%20September%20snapshot/%{name}-%{_ver}-%{_svnrel}.tar.gz
-# Source0-md5:	7a4501c2bb71fbdf1445e17ca4c58cb5
+Source0:	http://forge.novell.com/modules/xfcontent/private.php/apparmor/LKML_Submission-April_07/%{name}-%{_ver}-%{_svnrel}.tar.gz
+# Source0-md5:	34f47be331be35df7ca7b721d44d003c
 License:	GPL
 URL:		http://forge.novell.com/modules/xfmod/project/?apparmor
 Requires:	apparmor-parser
