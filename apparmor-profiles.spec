@@ -4,7 +4,7 @@ Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	%{_ver}.%{_svnrel}
-Release:	0.4
+Release:	1
 Epoch:		1
 Group:		Base
 Source0:	http://forge.novell.com/modules/xfcontent/private.php/apparmor/LKML_Submission-June-07/%{name}-%{_ver}-%{_svnrel}.tar.gz
@@ -39,7 +39,7 @@ SubDomain.
 Summary:	Abstraction AppArmor files
 Summary(pl.UTF-8):	Pliki abstrakcji dla AppArmor
 Group:		Base
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description abstractions
 Abstraction AppArmor files.
@@ -51,7 +51,7 @@ Pliki abstrakcji dla AppArmor.
 Summary:	Example AppArmor profiles
 Summary(pl.UTF-8):	Przykładowe profile AppArmor
 Group:		Base
-Requires:	%{name}-abstractions = %{version}-%{release}
+Requires:	%{name}-abstractions = %{epoch}:%{version}-%{release}
 
 %description examples
 Example AppArmor profiles.
