@@ -1,16 +1,14 @@
-%define		_ver 2.3
-%define		_svnrel 1245
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	%{_ver}.%{_svnrel}
+Version:	2.5
 Release:	1
 Epoch:		1
 Group:		Base
-Source0:	http://forgeftp.novell.com//apparmor/AppArmor%202.3-Beta1/%{name}-%{_ver}-%{_svnrel}.tar.gz
-# Source0-md5:	b1ebc13b9b255b28f7f8edc0a5b0f603
+Source0:	http://kernel.org/pub/linux/security/apparmor/AppArmor-%{version}/AppArmor-%{version}.tgz
+# Source0-md5:	4a747d1a1f85cb272d55b52c7e8a4a02
 License:	GPL
-URL:		http://forge.novell.com/modules/xfmod/project/?apparmor
+URL:		http://apparmor.wiki.kernel.org/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
 Obsoletes:	subdomain-profiles
@@ -60,11 +58,11 @@ Example AppArmor profiles.
 Przykładowe profile AppArmor.
 
 %prep
-%setup -q -n %{name}-%{_ver}
+%setup -q -n AppArmor-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
+%{__make} -C profiles install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	EXTRASDIR=$RPM_BUILD_ROOT%{extras_dir}
 
