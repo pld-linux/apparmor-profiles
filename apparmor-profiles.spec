@@ -2,7 +2,7 @@ Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	2.6.1
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Base
 Source0:	http://launchpad.net/apparmor/2.6/%{version}/+download/apparmor-%{version}.tar.gz
@@ -62,6 +62,9 @@ Przykładowe profile AppArmor.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT/%{_sysconfdir}/apparmor.d/cache
+
 %{__make} -C profiles install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	EXTRASDIR=$RPM_BUILD_ROOT%{extras_dir}
@@ -75,6 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/apparmor/profiles
 %dir %{_sysconfdir}/apparmor.d
 %dir %{_sysconfdir}/apparmor.d/abstractions
+%dir %{_sysconfdir}/apparmor.d/cache
 %dir %{_sysconfdir}/apparmor.d/local
 %dir %{_sysconfdir}/apparmor.d/program-chunks
 %dir %{_sysconfdir}/apparmor.d/tunables
