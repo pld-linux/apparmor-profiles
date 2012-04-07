@@ -4,10 +4,10 @@ Name:		apparmor-profiles
 Version:	2.7.2
 Release:	1
 Epoch:		1
+License:	GPL v2
 Group:		Base
 Source0:	http://launchpad.net/apparmor/2.7/%{version}/+download/apparmor-%{version}.tar.gz
 # Source0-md5:	2863e85bdfdf9ee35b83db6721fed1f1
-License:	GPL
 URL:		http://apparmor.wiki.kernel.org/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -62,8 +62,7 @@ Przykładowe profile AppArmor.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT/%{_sysconfdir}/apparmor.d/cache
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/apparmor.d/cache
 
 %{__make} -C profiles install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -82,16 +81,113 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/apparmor.d/local
 %dir %{_sysconfdir}/apparmor.d/program-chunks
 %dir %{_sysconfdir}/apparmor.d/tunables
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/alias
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/global
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/home
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/multiarch
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/ntpd
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/proc
+%dir %{_sysconfdir}/apparmor.d/tunables/home.d
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/home.d/site.local
+%dir %{_sysconfdir}/apparmor.d/tunables/multiarch.d
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/multiarch.d/site.local
 
 %files abstractions
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/X
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apache2-common
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/aspell
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/audio
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/authentication
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/base
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/bash
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/consoles
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/cups-client
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-session
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/enchant
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fonts
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/freedesktop.org
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gnome
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gnupg
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ibus
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kde
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kerberosclient
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/launchpad-integration
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ldapclient
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/likewise
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mdns
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mysql
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nameservice
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nis
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nvidia
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/openssl
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/orbit2
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/p11-kit
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/perl
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/php5
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/private-files
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/private-files-strict
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/python
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ruby
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/samba
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/smbpass
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ssl_certs
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ssl_keys
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/svn-repositories
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-bittorrent-clients
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-console-browsers
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-console-email
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-email
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-feed-readers
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-gnome-terminal
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-konsole
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-media-players
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-xterm
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-download
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-mail
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-manpages
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-tmp
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-write
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/video
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/web-data
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/winbind
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/wutmp
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xad
+%dir %{profiles_dir}/abstractions/ubuntu-browsers.d
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/java
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/kde
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/mailto
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/multimedia
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/plugins-common
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/productivity
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/text-editors
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/ubuntu-integration
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/ubuntu-integration-xul
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/user-files
 
 %files examples
 %defattr(644,root,root,755)
 %dir %{extras_dir}
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/*.*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/*.*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/program-chunks/*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/bin.ping
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.sbin.*
+%dir %{profiles_dir}/apache2.d
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/apache2.d/phpsysinfo
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/README
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/bin.ping
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.lib.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/program-chunks/postfix-common
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/README
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/bin.netstat
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/etc.cron.daily.*
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.NX.bin.nxclient
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.bin.*
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.lib.*
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.lib64.GConf.2.gconfd-2
+%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.sbin.*
