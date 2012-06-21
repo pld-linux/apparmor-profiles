@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	2.7.2
+Version:	2.8.0
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
-Source0:	http://launchpad.net/apparmor/2.7/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	2863e85bdfdf9ee35b83db6721fed1f1
+Source0:	http://launchpad.net/apparmor/2.8/%{version}/+download/apparmor-%{version}.tar.gz
+# Source0-md5:	eaf90c52992df3d205a753b2933595fe
 URL:		http://apparmor.wiki.kernel.org/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -142,6 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-email
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-feed-readers
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-gnome-terminal
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-helpers
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-konsole
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-media-players
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-xterm
@@ -155,6 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/winbind
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/wutmp
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xad
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xdg-desktop
 %dir %{profiles_dir}/abstractions/ubuntu-browsers.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/java
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/kde
