@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	2.8.3
+Version:	2.9.0
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
-Source0:	http://launchpad.net/apparmor/2.8/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	43586e5096606e857fef45c49553e468
+Source0:	http://launchpad.net/apparmor/2.9/%{version}/+download/apparmor-%{version}.tar.gz
+# Source0-md5:	daaeb859452f793abfdafd33f88d3e90
 URL:		http://apparmor.wiki.kernel.org/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -15,7 +15,7 @@ Obsoletes:	subdomain-profiles
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		extras_dir	%{_sysconfdir}/apparmor/profiles/extras
+%define		extras_dir	%{_datadir}/apparmor/extra-profiles
 %define		profiles_dir	%{_sysconfdir}/apparmor.d
 
 %description
@@ -73,24 +73,29 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_sysconfdir}/apparmor
-%dir %{_sysconfdir}/apparmor/profiles
 %dir %{_sysconfdir}/apparmor.d
 %dir %{_sysconfdir}/apparmor.d/abstractions
 %dir %{_sysconfdir}/apparmor.d/cache
 %dir %{_sysconfdir}/apparmor.d/local
-%dir %{_sysconfdir}/apparmor.d/program-chunks
 %dir %{_sysconfdir}/apparmor.d/tunables
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/alias
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/apparmorfs
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/dovecot
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/global
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/home
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/kernelvars
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/multiarch
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/ntpd
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/proc
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/securityfs
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/sys
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/xdg-user-dirs
 %dir %{_sysconfdir}/apparmor.d/tunables/home.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/home.d/site.local
 %dir %{_sysconfdir}/apparmor.d/tunables/multiarch.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/multiarch.d/site.local
+%dir %{_sysconfdir}/apparmor.d/tunables/xdg-user-dirs.d
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/xdg-user-dirs.d/site.local
 
 %files abstractions
 %defattr(644,root,root,755)
@@ -104,7 +109,13 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/consoles
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/cups-client
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-accessibility
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-accessibility-strict
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-session
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-session-strict
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-strict
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dconf
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dovecot-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/enchant
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fonts
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/freedesktop.org
@@ -126,6 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/p11-kit
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/perl
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/php5
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/postfix-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/private-files
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/private-files-strict
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/python
@@ -145,6 +157,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-helpers
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-konsole
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-media-players
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-unity7-base
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-unity7-launcher
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-unity7-messaging
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-xterm
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-download
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-mail
@@ -157,6 +172,12 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/wutmp
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xad
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xdg-desktop
+%dir %{profiles_dir}/abstractions/apparmor_api
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/change_profile
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/examine
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/find_mountpoint
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/introspect
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/is_enabled
 %dir %{profiles_dir}/abstractions/ubuntu-browsers.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/java
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/kde
@@ -171,7 +192,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files examples
 %defattr(644,root,root,755)
-%dir %{extras_dir}
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/bin.ping
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
@@ -183,13 +203,15 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.sbin.*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/program-chunks/postfix-common
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/README
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/bin.netstat
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/etc.cron.daily.*
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/sbin.*
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.NX.bin.nxclient
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.bin.*
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.lib.*
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.lib64.GConf.2.gconfd-2
-%config(noreplace) %verify(not md5 mtime size) %{extras_dir}/usr.sbin.*
+# XXX: top dir shared with apparmor-utils
+%dir %{_datadir}/apparmor
+%dir %{extras_dir}
+%{extras_dir}/README
+%{extras_dir}/bin.netstat
+%{extras_dir}/etc.cron.daily.*
+%{extras_dir}/sbin.*
+%{extras_dir}/usr.NX.bin.nxclient
+%{extras_dir}/usr.bin.*
+%{extras_dir}/usr.lib.*
+%{extras_dir}/usr.lib64.GConf.2.gconfd-2
+%{extras_dir}/usr.sbin.*
