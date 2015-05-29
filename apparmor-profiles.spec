@@ -128,6 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ldapclient
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/likewise
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mdns
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mir
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mysql
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nameservice
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nis
