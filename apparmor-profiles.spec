@@ -8,7 +8,7 @@ License:	GPL v2
 Group:		Base
 Source0:	http://launchpad.net/apparmor/2.10/%{version}/+download/apparmor-%{version}.tar.gz
 # Source0-md5:	9fd9b6b3525882fdb9441d0f0a8f9162
-URL:		http://apparmor.wiki.kernel.org/
+URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
 Obsoletes:	subdomain-profiles
