@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	2.10.1
+Version:	2.11.0
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
-Source0:	http://launchpad.net/apparmor/2.10/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	c9d82e04d699b0530b12dec15136027d
+Source0:	http://launchpad.net/apparmor/2.10/2.11/+download/apparmor-%{version}.tar.gz
+# Source0-md5:	899fd834dc5c8ebf2d52b97e4a174af7
 URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -117,6 +117,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dconf
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dovecot-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/enchant
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fcitx
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fcitx-strict
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fonts
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/freedesktop.org
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gnome
@@ -126,9 +128,11 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kerberosclient
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/launchpad-integration
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ldapclient
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/libpam-systemd
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/likewise
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mdns
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mir
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mozc
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mysql
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nameservice
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nis
@@ -137,6 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/orbit2
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/p11-kit
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/perl
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/php
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/php5
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/postfix-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/private-files
@@ -168,6 +173,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-tmp
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/user-write
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/video
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/wayland
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/web-data
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/winbind
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/wutmp
