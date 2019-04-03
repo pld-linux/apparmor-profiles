@@ -2,7 +2,7 @@ Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	2.13.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Base
@@ -195,7 +195,6 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/X
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xad
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xdg-desktop
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/nvidia_modprobe
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/share
 %dir %{profiles_dir}/abstractions/apparmor_api
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/change_profile
@@ -218,6 +217,7 @@ rm -rf $RPM_BUILD_ROOT
 %files examples
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/bin.ping
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/nvidia_modprobe
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.sbin.*
