@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	2.13.2
+Version:	2.13.3
 Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Base
 Source0:	http://launchpad.net/apparmor/2.13/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	2439b35266b5a3a461b0a2dba6e863c3
+# Source0-md5:	81468fb2b7ba7966910f617371073391
 URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -217,6 +217,7 @@ rm -rf $RPM_BUILD_ROOT
 %files examples
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/bin.ping
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lsb_release
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/nvidia_modprobe
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
@@ -225,6 +226,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/apache2.d/phpsysinfo
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/README
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/bin.ping
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/lsb_release
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/nvidia_modprobe
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.lib.*
