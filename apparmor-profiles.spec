@@ -2,12 +2,13 @@ Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	2.13.4
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Base
 Source0:	http://launchpad.net/apparmor/2.13/%{version}/+download/apparmor-%{version}.tar.gz
 # Source0-md5:	a50b793a3362551f07733be3df9c328f
+Patch0:		apparmor-2.13.4-fix_systemd_userdb.patch
 URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -59,6 +60,7 @@ Przykładowe profile AppArmor.
 
 %prep
 %setup -q -n apparmor-%{version}
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
