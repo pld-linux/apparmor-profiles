@@ -1,15 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	2.13.4
-Release:	3
+Version:	3.0.1
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
-Source0:	http://launchpad.net/apparmor/2.13/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	a50b793a3362551f07733be3df9c328f
-Patch0:		apparmor-2.13.4-fix_systemd_userdb.patch
-Patch1:		apparmor-2.13.4-run_variable.patch
+Source0:	http://launchpad.net/apparmor/3.0/%{version}/+download/apparmor-%{version}.tar.gz
+# Source0-md5:	e05eab22bdd1dfc64854856a7292cf09
 URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -61,8 +59,6 @@ Przykładowe profile AppArmor.
 
 %prep
 %setup -q -n apparmor-%{version}
-%patch0 -p1
-%patch1 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -79,12 +75,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/apparmor.d
 %dir %{_sysconfdir}/apparmor.d/abstractions
+%dir %{_sysconfdir}/apparmor.d/abi
+%config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/3.0
+%config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/kernel-5.4-outoftree-network
+%config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/kernel-5.4-vanilla
 %dir %{_sysconfdir}/apparmor.d/cache
 %dir %{_sysconfdir}/apparmor.d/local
 %dir %{_sysconfdir}/apparmor.d/tunables
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/alias
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/apparmorfs
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/dovecot
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/etc
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/global
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/home
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/kernelvars
@@ -115,6 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-accessibility
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-accessibility-strict
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-network-manager-strict
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-session
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-session-strict
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-strict
@@ -123,17 +125,22 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dri-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dri-enumerate
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/enchant
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/exo-open
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fcitx
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fcitx-strict
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/fonts
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/freedesktop.org
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gio-open
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gnome
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gnupg
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gvfs-open
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/hosts_access
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ibus
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kde
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kde-globals-write
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kde-icon-cache-write
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kde-language-write
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kde-open5
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/kerberosclient
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ldapclient
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/libpam-systemd
@@ -145,6 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/mysql
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nameservice
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nis
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nss-systemd
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/nvidia
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/opencl
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/opencl-common
@@ -157,6 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/p11-kit
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/perl
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/php
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/php-worker
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/php5
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/postfix-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/private-files
@@ -174,6 +183,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/svn-repositories
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-bittorrent-clients
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers
+%dir %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/chromium-browser
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-console-browsers
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-console-email
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-email
@@ -200,6 +211,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/X
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xad
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xdg-desktop
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xdg-open
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/share
 %dir %{profiles_dir}/abstractions/apparmor_api
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/change_profile
@@ -224,6 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/bin.ping
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lsb_release
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/nvidia_modprobe
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/php-fpm
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.sbin.*
@@ -233,6 +246,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/bin.ping
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/lsb_release
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/nvidia_modprobe
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/php-fpm
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.sbin.*
@@ -242,6 +256,7 @@ rm -rf $RPM_BUILD_ROOT
 %{extras_dir}/README
 %{extras_dir}/bin.netstat
 %{extras_dir}/etc.cron.daily.*
+%{extras_dir}/postfix-*
 %{extras_dir}/sbin.*
 %{extras_dir}/usr.NX.bin.nxclient
 %{extras_dir}/usr.bin.*
