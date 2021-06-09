@@ -94,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/proc
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/run
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/securityfs
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/share
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/sys
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/xdg-user-dirs
 %dir %{_sysconfdir}/apparmor.d/tunables/home.d
@@ -183,8 +184,6 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/svn-repositories
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-bittorrent-clients
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers
-%dir %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/chromium-browser
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-console-browsers
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-console-email
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-email
@@ -212,7 +211,6 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xad
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xdg-desktop
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/xdg-open
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/share
 %dir %{profiles_dir}/abstractions/apparmor_api
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/change_profile
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/examine
@@ -220,6 +218,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/introspect
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/apparmor_api/is_enabled
 %dir %{profiles_dir}/abstractions/ubuntu-browsers.d
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/chromium-browser
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/java
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/kde
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers.d/mailto
