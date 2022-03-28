@@ -11,7 +11,7 @@ Source0:	http://launchpad.net/apparmor/3.0/%{version}/+download/apparmor-%{versi
 URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
-Obsoletes:	subdomain-profiles
+Obsoletes:	subdomain-profiles < 2.1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
