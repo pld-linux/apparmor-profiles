@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	3.0.1
+Version:	3.0.4
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
 Source0:	http://launchpad.net/apparmor/3.0/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	e05eab22bdd1dfc64854856a7292cf09
+# Source0-md5:	5215a5751a90a45149c699fc3e61a6e8
 URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -113,6 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/base
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/bash
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/consoles
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/crypto
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/cups-client
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/dbus-accessibility
@@ -134,6 +135,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gio-open
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gnome
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gnupg
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gtk
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/gvfs-open
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/hosts_access
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ibus
@@ -236,6 +238,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lsb_release
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/nvidia_modprobe
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/php-fpm
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/samba-bgqd
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.sbin.*
@@ -246,6 +249,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/lsb_release
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/nvidia_modprobe
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/php-fpm
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/samba-bgqd
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.sbin.*
