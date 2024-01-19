@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	3.0.9
+Version:	3.1.6
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
-Source0:	http://launchpad.net/apparmor/3.0/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	b375c0b9e7bb31760ee50d2642f302d1
+Source0:	http://launchpad.net/apparmor/3.1/%{version}/+download/apparmor-%{version}.tar.gz
+# Source0-md5:	3e23347c5562418b165fd7ec452808aa
 URL:		http://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -187,6 +187,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ssl_certs
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ssl_keys
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/svn-repositories
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/trash
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-bittorrent-clients
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-console-browsers
@@ -245,6 +246,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/zgrep
 %dir %{profiles_dir}/apache2.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/apache2.d/phpsysinfo
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/README
@@ -256,12 +258,16 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/sbin.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/zgrep
 # XXX: top dir shared with apparmor-utils
 %dir %{_datadir}/apparmor
 %dir %{extras_dir}
 %{extras_dir}/README
 %{extras_dir}/bin.netstat
+%{extras_dir}/chromium_browser
 %{extras_dir}/etc.cron.daily.*
+%{extras_dir}/firefox
+%attr(755,root,root) %{extras_dir}/firefox.sh
 %{extras_dir}/postfix-*
 %{extras_dir}/sbin.*
 %{extras_dir}/usr.NX.bin.nxclient
