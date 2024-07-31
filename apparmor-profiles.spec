@@ -2,7 +2,7 @@ Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
 Version:	4.0.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Base
@@ -77,6 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/apparmor.d/abstractions
 %dir %{_sysconfdir}/apparmor.d/abi
 %config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/3.0
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abi/4.0
 %config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/kernel-5.4-outoftree-network
 %config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/kernel-5.4-vanilla
 %dir %{_sysconfdir}/apparmor.d/cache
@@ -187,6 +188,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ssl_certs
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ssl_keys
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/svn-repositories
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/transmission-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/trash
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-bittorrent-clients
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/ubuntu-browsers
@@ -239,8 +241,6 @@ rm -rf $RPM_BUILD_ROOT
 %files examples
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/1password
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abi/4.0
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/transmission-common
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/balena-etcher
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/bin.ping
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/brave
