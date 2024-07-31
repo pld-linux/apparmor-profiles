@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	3.1.7
+Version:	4.0.2
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
-Source0:	https://launchpad.net/apparmor/3.1/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	eee581ab969f708f1e4c6f2847c0c7a6
+Source0:	https://launchpad.net/apparmor/4.0/%{version}/+download/apparmor-%{version}.tar.gz
+# Source0-md5:	3ec5038b504044f714708eb074c09fce
 URL:		https://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
@@ -238,27 +238,116 @@ rm -rf $RPM_BUILD_ROOT
 
 %files examples
 %defattr(644,root,root,755)
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/1password
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abi/4.0
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abstractions/transmission-common
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/balena-etcher
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/bin.ping
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/brave
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/buildah
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/busybox
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/cam
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/ch-checkns
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/chrome
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/chromium
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/ch-run
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/code
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/crun
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/devhelp
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/Discord
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/element-desktop
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/epiphany
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/evolution
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/firefox
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/flatpak
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/foliate
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/geary
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/github-desktop
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/goldendict
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/ipa_verify
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/kchmviewer
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/keybase
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lc-compliance
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/libcamerify
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/linux-sandbox
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/loupe
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lsb_release
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lxc-attach
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lxc-create
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lxc-destroy
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lxc-execute
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lxc-stop
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lxc-unshare
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/lxc-usernsexec
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/mmdebstrap
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/MongoDB_Compass
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/msedge
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/nautilus
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/notepadqq
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/nvidia_modprobe
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/obsidian
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/opam
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/opera
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/pageedit
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/php-fpm
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/plasmashell
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/podman
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/polypane
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/privacybrowser
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/qcam
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/qmapshack
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/QtWebEngineProcess
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/qutebrowser
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/rootlesskit
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/rpm
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/rssguard
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/runc
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/samba-*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-abort
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-adduser
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-apt
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-checkpackages
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-clean
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-createchroot
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-destroychroot
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-distupgrade
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-hold
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-shell
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-unhold
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-update
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/sbuild-upgrade
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/scide
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/signal-desktop
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/slack
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/slirp4netns
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/steam
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/stress-ng
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/surfshark
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/systemd-coredump
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/thunderbird
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/toybox
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/transmission
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/trinity
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tup
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tuxedo-control-center
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/unix-chkpwd
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/unprivileged_userns
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/userbindmount
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.lib.*
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/usr.sbin.*
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/uwsgi-core
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/vdens
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/virtiofsd
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/vivaldi-bin
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/vpnns
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/wike
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/wpcom
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/zgrep
 %dir %{profiles_dir}/apache2.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/apache2.d/phpsysinfo
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/README
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/bin.ping
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/lsb_release
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/nvidia_modprobe
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/php-fpm
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/samba-*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/sbin.*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.lib.*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/usr.sbin.*
-%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/local/zgrep
 # XXX: top dir shared with apparmor-utils
 %dir %{_datadir}/apparmor
 %dir %{extras_dir}
@@ -268,10 +357,13 @@ rm -rf $RPM_BUILD_ROOT
 %{extras_dir}/etc.cron.daily.*
 %{extras_dir}/firefox
 %attr(755,root,root) %{extras_dir}/firefox.sh
+%{extras_dir}/bwrap-userns-restrict
 %{extras_dir}/postfix-*
+%{extras_dir}/rpcbind
 %{extras_dir}/sbin.*
-%{extras_dir}/usr.NX.bin.nxclient
+%{extras_dir}/unshare-userns-restrict
 %{extras_dir}/usr.bin.*
 %{extras_dir}/usr.lib.*
 %{extras_dir}/usr.lib64.GConf.2.gconfd-2
+%{extras_dir}/usr.NX.bin.nxclient
 %{extras_dir}/usr.sbin.*
