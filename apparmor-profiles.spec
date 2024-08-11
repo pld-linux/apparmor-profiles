@@ -73,16 +73,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_sysconfdir}/apparmor.d
-%dir %{_sysconfdir}/apparmor.d/abstractions
-%dir %{_sysconfdir}/apparmor.d/abi
-%config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/3.0
+%dir %{profiles_dir}
+%dir %{profiles_dir}/abstractions
+%dir %{profiles_dir}/abi
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abi/3.0
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abi/4.0
-%config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/kernel-5.4-outoftree-network
-%config(noreplace) %verify(not md5 mtime size) /etc/apparmor.d/abi/kernel-5.4-vanilla
-%dir %{_sysconfdir}/apparmor.d/cache
-%dir %{_sysconfdir}/apparmor.d/local
-%dir %{_sysconfdir}/apparmor.d/tunables
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abi/kernel-5.4-outoftree-network
+%config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/abi/kernel-5.4-vanilla
+%dir %{profiles_dir}/cache
+%dir %{profiles_dir}/local
+%dir %{profiles_dir}/tunables
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/alias
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/apparmorfs
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/dovecot
@@ -98,11 +98,11 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/share
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/sys
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/xdg-user-dirs
-%dir %{_sysconfdir}/apparmor.d/tunables/home.d
+%dir %{profiles_dir}/tunables/home.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/home.d/site.local
-%dir %{_sysconfdir}/apparmor.d/tunables/multiarch.d
+%dir %{profiles_dir}/tunables/multiarch.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/multiarch.d/site.local
-%dir %{_sysconfdir}/apparmor.d/tunables/xdg-user-dirs.d
+%dir %{profiles_dir}/tunables/xdg-user-dirs.d
 %config(noreplace) %verify(not md5 mtime size) %{profiles_dir}/tunables/xdg-user-dirs.d/site.local
 
 %files abstractions
