@@ -1,13 +1,13 @@
 Summary:	AppArmor profiles
 Summary(pl.UTF-8):	Profile AppArmor
 Name:		apparmor-profiles
-Version:	4.0.2
-Release:	2
+Version:	4.0.3
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Base
 Source0:	https://launchpad.net/apparmor/4.0/%{version}/+download/apparmor-%{version}.tar.gz
-# Source0-md5:	3ec5038b504044f714708eb074c09fce
+# Source0-md5:	d581e358c470cb14f98cb838910ddf9e
 URL:		https://wiki.apparmor.net/
 Requires:	apparmor-parser
 Provides:	subdomain-profiles
